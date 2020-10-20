@@ -75,6 +75,7 @@ while ( op < 6):
     elif(op==3):
         nombre=input("Producto a eliminar:")
         to=time()
+        
         for i in range (len(p)):
             if (p[i].nombre==nombre):
                 del p[i]
@@ -83,6 +84,7 @@ while ( op < 6):
         print(t,'milisegundos')
     elif(op==4):
         to=time()
+        
         for i in range (len(p)):
             p[i].mostrar_ele()
         tf=time()
@@ -91,9 +93,13 @@ while ( op < 6):
     elif(op==5):
         to=time()
         nombre=input("Busqueda por nombre/ingresar nombre:")
+        esta=False
         for i in range (len(p)):
             if (p[i].nombre==nombre):
+                esta=True
                 p[i].mostrar_ele()
+        if(esta==False):
+            print("El producto que solicita no esta registrado")
         tf=time()
         t=tf-to
         print(t,'milisegundos')
