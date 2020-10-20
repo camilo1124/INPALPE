@@ -29,7 +29,14 @@ class Producto:
         print(self.fecha_v)
         print("Cantidad:")
         print(self.unidades)
-        
+    def get_nombre(self):
+        return self.nombre
+    def get_fecha_r(self):
+        return self.fecha_r.strftime("%m/%d/%Y")
+    def get_fecha_v(self):
+        return self.fecha_r.strftime("%m/%d/%Y")
+    def get_unidades(self):
+        return str(self.unidades)
     
         
         

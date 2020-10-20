@@ -1,13 +1,25 @@
 from Indice import *
 to=time()
 archivo='texto/productos.txt'
-n=10000
+n=1000
 p=inicializacion(archivo,n)
 tf=time()
 t=tf-to
 print(t,'milisegundos')
 
-#metodo para crear
+
+archivo_texto=open("archivo.txt","a")
+for i in range(len(p)):
+    archivo_texto.write(p[i].get_nombre())   
+    archivo_texto.write(p[i].get_fecha_r())
+    archivo_texto.write('\n')
+    archivo_texto.write(p[i].get_fecha_v())
+    archivo_texto.write('\n')
+    archivo_texto.write(p[i].get_unidades())
+    archivo_texto.write('\n')
+    archivo_texto.write('\n')
+archivo_texto.close()
+
 
 
 print("Inventario para alimentos perecederos")
@@ -17,30 +29,42 @@ print("2.Actualizar:")
 print("3.Eliminar:")
 print("4.Consultar todo")
 print("5.Consulta por elemento")
-print("6.Salir")
+print("6.Ordenamiento")
+print("7.Almacenamiento")
+print("8.Salir")
 opc= input()
 op=int(opc)
-while ( op < 5):
+while ( op < 8):
     if(op==1):
         print("Fecha de Vencimiento:")
-        anio=input("Año:")
-        mes=input("Mes:")
-        dia=input("Dia:")
+        anio=int(input("Año:"))
+        mes=int(input("Mes:"))
+        dia=int(input("Dia:"))
         fecha=date(anio,mes,dia)
-        nombre=input("Nombre del producto")
-        cant=input("Cantidad:") 
+        nombre=input("Nombre del producto:")
+        cant=int(input("Cantidad:")) 
         to=time()
-        p.append(Producto(nombre,date.today(),fecha,cant))
+        p.append(Producto(nombre,date.today(),fecha,cant))        
+        archivo_texto=open("archivo.txt","a")
+        archivo_texto.write(p[len(p)-1].get_nombre())   
+        archivo_texto.write(p[len(p)-1].get_fecha_r())
+        archivo_texto.write('\n')
+        archivo_texto.write(p[len(p)-1].get_fecha_v())
+        archivo_texto.write('\n')
+        archivo_texto.write(p[len(p)-1].get_unidades())
+        archivo_texto.write('\n')
+        archivo_texto.write('\n')
+        archivo_texto.close()
         tf=time()
         t=tf-to
         print(t,'milisegundos')
     elif(op==2):
-        nombre=input("Producto a modificar")
+        nombre=input("Producto a modificar:")
         cantidad=input("Cantidad:")
         print("Fecha de vencimiento:") 
-        anio=input("Año:")
-        mes=input("Mes:")
-        dia=input("Dia:")
+        anio=int(input("Año:"))
+        mes=int(input("Mes:"))
+        dia=int(input("Dia:"))
         fecha=date(anio,mes,dia) 
         to=time()
         for i in range (len(p)):
@@ -51,8 +75,9 @@ while ( op < 5):
         print(t,'milisegundos')
         
     elif(op==3):
-        nombre=input("Producto a eliminar")
+        nombre=input("Producto a eliminar:")
         to=time()
+        
         for i in range (len(p)):
             if (p[i].nombre==nombre):
                 del p[i]
@@ -61,6 +86,7 @@ while ( op < 5):
         print(t,'milisegundos')
     elif(op==4):
         to=time()
+        
         for i in range (len(p)):
             p[i].mostrar_ele()
         tf=time()
@@ -69,12 +95,21 @@ while ( op < 5):
     elif(op==5):
         to=time()
         nombre=input("Busqueda por nombre/ingresar nombre:")
+        esta=False
         for i in range (len(p)):
             if (p[i].nombre==nombre):
+                esta=True
                 p[i].mostrar_ele()
+        if(esta==False):
+            print("El producto que solicita no esta registrado")
         tf=time()
         t=tf-to
         print(t,'milisegundos')
+    elif(op==6):
+        print("No disponible en esta version, funcion en fase de diseño")
+    elif(op==7):
+        print("No disponible en esta version, funcion en fase de diseño")
+    
     print("Inventario para alimentos perecederos")
     print("Opciones:")
     print("1.Añadir:")
@@ -82,7 +117,9 @@ while ( op < 5):
     print("3.Eliminar:")
     print("4.Consultar todo")
     print("5.Consulta por elemento")
-    print("6.Salir")
+    print("6.Ordenamiento")
+    print("7.Almacenamiento")
+    print("8.Salir")
     opc= input()
     op=int(opc)
         
