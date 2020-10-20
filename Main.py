@@ -29,12 +29,10 @@ print("2.Actualizar:")
 print("3.Eliminar:")
 print("4.Consultar todo")
 print("5.Consulta por elemento")
-print("6.Ordenamiento")
-print("7.Almacenamiento")
-print("8.Salir")
+print("6.Salir")
 opc= input()
 op=int(opc)
-while ( op < 8):
+while ( op < 6):
     if(op==1):
         print("Fecha de Vencimiento:")
         anio=int(input("Año:"))
@@ -77,7 +75,6 @@ while ( op < 8):
     elif(op==3):
         nombre=input("Producto a eliminar:")
         to=time()
-        
         for i in range (len(p)):
             if (p[i].nombre==nombre):
                 del p[i]
@@ -86,7 +83,6 @@ while ( op < 8):
         print(t,'milisegundos')
     elif(op==4):
         to=time()
-        
         for i in range (len(p)):
             p[i].mostrar_ele()
         tf=time()
@@ -95,21 +91,12 @@ while ( op < 8):
     elif(op==5):
         to=time()
         nombre=input("Busqueda por nombre/ingresar nombre:")
-        esta=False
         for i in range (len(p)):
             if (p[i].nombre==nombre):
-                esta=True
                 p[i].mostrar_ele()
-        if(esta==False):
-            print("El producto que solicita no esta registrado")
         tf=time()
         t=tf-to
         print(t,'milisegundos')
-    elif(op==6):
-        print("No disponible en esta version, funcion en fase de diseño")
-    elif(op==7):
-        print("No disponible en esta version, funcion en fase de diseño")
-    
     print("Inventario para alimentos perecederos")
     print("Opciones:")
     print("1.Añadir:")
@@ -117,9 +104,7 @@ while ( op < 8):
     print("3.Eliminar:")
     print("4.Consultar todo")
     print("5.Consulta por elemento")
-    print("6.Ordenamiento")
-    print("7.Almacenamiento")
-    print("8.Salir")
+    print("6.Salir")
     opc= input()
     op=int(opc)
         
