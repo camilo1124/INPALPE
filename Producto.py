@@ -4,7 +4,7 @@ class Producto:
         self.nombre=nombre
         self.fecha_r=fecha_r
         self.unidades=unidades
-        self.fecha_v=fecha_r
+        self.fecha_v=fecha_v
         if self.fecha_v<=date.today():
             vencido= True
         else:
@@ -34,7 +34,7 @@ class Producto:
     def get_fecha_r(self):
         return self.fecha_r.strftime("%m/%d/%Y")
     def get_fecha_v(self):
-        return self.fecha_r.strftime("%m/%d/%Y")
+        return self.fecha_v.strftime("%m/%d/%Y")
     def get_unidades(self):
         return str(self.unidades)
     
